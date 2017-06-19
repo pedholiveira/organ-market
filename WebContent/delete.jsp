@@ -10,35 +10,35 @@
 	        <div class="row">
 	           <ul class="nav nav-tabs nav-justified">
 	                <li role="presentation">
-	                	<a href="/create">
+	                	<a href="create">
 		                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 		                    Create
 		                </a>
 		            </li>
 		            
 	                <li role="presentation">
-	                	<a href="/read">
+	                	<a href="read">
 	                   		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 	                    	Read
 	                    </a>
 	                </li>
 	                
 	                <li role="presentation">
-	                	<a href="/filter">
+	                	<a href="filter">
 	                    	<span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
 	                    	Filter
 	                    </a>
 	                </li>
 	                
 	                <li role="presentation" class="disabled">
-	                	<a href="/update">
+	                	<a href="update">
 	                    	<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 	                    	Update
 	                    </a>
 	                </li>
 	                
 	                <li role="presentation" class="active">
-	                	<a href="/delete">
+	                	<a href="delete">
 	                    	<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 	                    	Delete
 	                    </a>
@@ -63,12 +63,12 @@
 	                    <td>7000.48</td>
 	                    <td>Harry Potter, male, 45 years</td>
 	                    <td>
-	                        <a class="btn btn-link" href="/read">
+	                        <a class="btn btn-link" href="read">
 	                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 	                            Yes
 	                        </a>
 	                        
-	                        <a class="btn btn-link" href="/read">
+	                        <a class="btn btn-link" href="read">
 	                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 	                            No
 	                        </a>

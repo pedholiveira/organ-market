@@ -12,35 +12,35 @@
 	        <div class="row">
 	           <ul class="nav nav-tabs nav-justified">
 	                <li role="presentation" class="active">
-	                	<a href="/create">
+	                	<a href="create">
 	                    	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 	                    	Create
 	                    </a>
 	                </li>
 	                
 	                <li role="presentation">
-	                	<a href="/read">
+	                	<a href="read">
 	                   		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 	                    	Read
 	                    </a>
 	                </li>
 	                
 	                <li role="presentation">
-	                	<a href="/filter">
+	                	<a href="filter">
 	                    	<span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
 	                    	Filter
 	                    </a>
 	                </li>
 	                
 	                <li role="presentation" class="disabled">
-	                	<a href="/update">
+	                	<a href="update">
 	                    	<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 	                    	Update
 	                    </a>
 	                </li>
 	                
 	                <li role="presentation" class="disabled">
-	                	<a href="/delete">
+	                	<a href="delete">
 	                    	<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 	                    	Delete
 	                    </a>
@@ -70,12 +70,11 @@
 		              	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 		              	Create
 		            </button>
-	
-		            <button type="submit" class="btn btn-link">
-		            	<a href="/read">
-		            		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-		              		Cancel</button>
-		              	</a>
+		            
+	            	<a href="read">
+	            		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+	              		Cancel
+	              	</a>
 	            </form>
 	        </div>
 	    </div>

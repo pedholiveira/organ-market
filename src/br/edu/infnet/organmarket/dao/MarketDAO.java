@@ -13,9 +13,9 @@ public class MarketDAO implements Closeable {
     private Connection connection;
     private static MarketDAO instance;
 
-    private static final String DB_URL = "mysql://localhost:3306/organ_market";
-	private static final String USER = "root";
-	private static final String PASSWORD = "root";
+    private static final String DB_URL = "mysql://gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/x6t1f6ow9hzgcq8v";
+	private static final String USER = "eg0u4uvkdw6pf43c";
+	private static final String PASSWORD = "mnyn43vm83jw2sfz";
 
     public static MarketDAO getInstance() {
         if (instance == null) {
