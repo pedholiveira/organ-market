@@ -14,8 +14,8 @@ public class MarketDAO implements Closeable {
     private static MarketDAO instance;
 
     private static final String DB_URL = "mysql://gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/x6t1f6ow9hzgcq8v";
-	private static final String USER = "eg0u4uvkdw6pf43c";
-	private static final String PASSWORD = "mnyn43vm83jw2sfz";
+	private static final String USER = "root";
+	private static final String PASSWORD = "root";
 
     public static MarketDAO getInstance() {
         if (instance == null) {
@@ -55,13 +55,13 @@ public class MarketDAO implements Closeable {
 
     public Organ getOneById(Long id) {
         Organ organ = new Organ();
-        String sql = "SELECT * FROM Stock WHERE Id = '?'";
+        String sql = "SELECT * FROM Stock WHERE Id = ?";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
 
-            ResultSet set = statement.executeQuery(sql);
+            ResultSet set = statement.executeQuery();
             set.next();
 
             organ.setId(set.getLong("Id"));
@@ -115,5 +115,28 @@ public class MarketDAO implements Closeable {
             e.printStackTrace();
         }
     }
+    
+    public void update(Organ organ){
+        try {
+            PreparedStatement stmt = connection.prepareStatement("UPDATE Stock SET Organ = ?, Price = ?, Donator = ? WHERE Id = ?");
+            stmt.setString(1, organ.getOrgan());
+            stmt.setBigDecimal(2, organ.getPrice());
+            stmt.setString(3, organ.getDonator());
+            stmt.setLong(4, organ.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void delete(Long id) {
+		try {
+			//Falha de segurança a ser listada pelo relatório.
+			PreparedStatement stmt = connection.prepareStatement("DELETE FROM Stock WHERE Id = " + id);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

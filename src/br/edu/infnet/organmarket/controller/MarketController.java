@@ -41,6 +41,7 @@ public class MarketController extends HttpServlet {
         if (action.equals("/create")) {
             resource = "create.jsp";
         } else if (action.equals("/delete")) {
+        	req.setAttribute("organ", dao.getOneById(new Long(req.getParameter("id"))));
             resource = "delete.jsp";
         } else if (action.equals("/update")) {
             req.setAttribute("organ", dao.getOneById(new Long(req.getParameter("id"))));
@@ -57,16 +58,56 @@ public class MarketController extends HttpServlet {
         String action = req.getServletPath();
         String resource = "/read.jsp";
 
+        Organ organ = new Organ();
+        
         if (action.equals("/create")) {
-            Organ organ = new Organ();
-            organ.setOrgan(req.getParameter("organ"));
+        	organ.setOrgan(req.getParameter("organ"));
             organ.setPrice(new BigDecimal(req.getParameter("price")));
             organ.setDonator(req.getParameter("donator"));
             dao.insert(organ);
+        } else if (action.equals("/update")) {
+        	organ.setId(Long.valueOf(req.getParameter("id")));
+        	organ.setOrgan(req.getParameter("organ"));
+            organ.setPrice(new BigDecimal(req.getParameter("price")));
+            organ.setDonator(req.getParameter("donator"));
+        	dao.update(organ);
+        } else if (action.equals("/delete")) {
+        	dao.delete(Long.valueOf(req.getParameter("id")));
         }
 
         req.setAttribute("organs", dao.getAll());
         RequestDispatcher dispatcher = req.getRequestDispatcher(resource);
         dispatcher.forward(req, resp);
     }
+    
+    @Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	String action = req.getServletPath();
+        String resource = "/read.jsp";
+
+        if (action.equals("/update")) {
+            Organ organ = new Organ();
+            organ.setId(Long.valueOf(req.getParameter("id")));
+            organ.setOrgan(req.getParameter("organ"));
+            organ.setPrice(new BigDecimal(req.getParameter("price")));
+            organ.setDonator(req.getParameter("donator"));
+            dao.update(organ);
+        }
+
+        req.setAttribute("organs", dao.getAll());
+        RequestDispatcher dispatcher = req.getRequestDispatcher(resource);
+        dispatcher.forward(req, resp);
+	}
+    
+    @Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String resource = "/read.jsp";
+    	
+    	dao.delete(Long.valueOf(req.getParameter("id")));
+		
+    	req.setAttribute("organs", dao.getAll());
+        RequestDispatcher dispatcher = req.getRequestDispatcher(resource);
+        dispatcher.forward(req, resp);
+	}
+    
 }

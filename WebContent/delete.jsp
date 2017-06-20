@@ -1,4 +1,8 @@
-<jsp:include page="header.jsp" />
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<c:import url="header.jsp" />
+<%@ page isELIgnored="false" %>
+
+<c:out value="${organ}"/>
 
 <body>
 	<div class="container">
@@ -47,34 +51,38 @@
 	        </div>
 	        
 	        <div>
-	            <!-- Table -->
-	            <table class="table">
-	            	<tr>
-	                	<td>ID</td>
-	                    <td>Organ</td>
-	                    <td>Price</td>
-	                    <td>Donator</td>
-	                    <td>Delete?</td>
-	                </tr>
-	                
-	                <tr>
-	                    <td>9780439708180</td>
-	                    <td>Heart</td>
-	                    <td>7000.48</td>
-	                    <td>Harry Potter, male, 45 years</td>
-	                    <td>
-	                        <a class="btn btn-link" href="read">
-	                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-	                            Yes
-	                        </a>
-	                        
-	                        <a class="btn btn-link" href="read">
-	                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-	                            No
-	                        </a>
-	                    </td>
-	           		</tr>
-	        	</table>
+	            <form action="delete" method="POST">
+	        		<input type="hidden" class="form-control" name="id" value="${organ.id}">
+	        		<div class="form-group">
+			            <table class="table">
+			            	<tr>
+			                	<td>ID</td>
+			                    <td>Organ</td>
+			                    <td>Price</td>
+			                    <td>Donator</td>
+			                    <td>Delete?</td>
+			                </tr>
+			                
+			                <tr>
+			                	<td><c:out value="${organ.id}"/></td>
+			                    <td><c:out value="${organ.organ}"/></td>
+			                    <td><c:out value="${organ.price}"/></td>
+			                    <td><c:out value="${organ.donator}"/></td>
+			                    <td>
+			                        <button type="submit" class="btn btn-link">
+						              	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						              	Yes
+						            </button>
+			                        
+			                        <a class="btn btn-link" href="read">
+			                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			                            No
+			                        </a>
+			                    </td>
+			           		</tr>
+			        	</table>
+		        	</div>
+	        	</form>
 	        </div>
 	    </div>
 	</div>

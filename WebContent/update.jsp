@@ -51,37 +51,44 @@
 	        </div>
 	        
 	        <div>
-	            <!-- Table -->
-	            <table class="table">
-					<tr>
-	                	<td>Organ</td>
-	                    <td>Price</td>
-	                    <td>Donator</td>
-	                </tr>
-	                
-	                <tr>
-	                    <td><c:out value="${organ.organ}"/></td>
-	                    <td><c:out value="${organ.price}"/></td>
-	                    <td><c:out value="${organ.donator}"/></td>
-	                </tr>
-	                
-	                <tr>
-	                    <td><input type="text" class="form-control" name="organ"></td>
-	                    <td><input type="text" class="form-control" name="price"></td>
-	                    <td><input type="text" class="form-control" name="donator"></td>
-	                </tr>
-	        	</table>
-	        </div>
-	        <div class="row">
-	            <a class="btn btn-link" href="/read">
-	                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-	                Save
-	            </a>
-	            
-	            <a class="btn btn-link" href="/read">
-	                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-	                Cancel
-	            </a>
+	        	<form action="update" method="POST">
+	        		<input type="hidden" class="form-control" name="id" value="${organ.id}">
+	            	<div class="form-group">
+			            <!-- Table -->
+			            <table class="table">
+							<tr>
+			                	<td>Organ</td>
+			                    <td>Price</td>
+			                    <td>Donator</td>
+			                </tr>
+			                
+			                <tr>
+			                    <td><c:out value="${organ.organ}"/></td>
+			                    <td><c:out value="${organ.price}"/></td>
+			                    <td><c:out value="${organ.donator}"/></td>
+			                </tr>
+			                
+			                <tr>
+			                    <td><input type="text" class="form-control" name="organ"></td>
+			                    <td><input type="text" class="form-control" name="price"></td>
+			                    <td><input type="text" class="form-control" name="donator"></td>
+			                </tr>
+			        	</table>
+		        	</div>
+		        	
+		          	<div class="row">
+			        	<button type="submit" class="btn btn-link">
+			              	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+			              	Save
+			            </button>
+			        	    
+			            <a class="btn btn-link" href="read">
+			                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			                Cancel
+			            </a>
+			        </div>
+		            
+		        </form>
 	        </div>
 	    </div>
 	</div>
