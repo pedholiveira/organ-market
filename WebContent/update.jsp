@@ -2,8 +2,6 @@
 <c:import url="header.jsp" />
 <%@ page isELIgnored="false" %>
 
-<c:out value="${organ}"/>
-
 <body>
 	<div class="container">
 	    <div class="center-block">
@@ -63,15 +61,9 @@
 			                </tr>
 			                
 			                <tr>
-			                    <td><c:out value="${organ.organ}"/></td>
-			                    <td><c:out value="${organ.price}"/></td>
-			                    <td><c:out value="${organ.donator}"/></td>
-			                </tr>
-			                
-			                <tr>
-			                    <td><input type="text" class="form-control" name="organ"></td>
-			                    <td><input type="text" class="form-control" name="price"></td>
-			                    <td><input type="text" class="form-control" name="donator"></td>
+			                    <td><input type="text" class="form-control" name="organ" value="${organ.organ}"></td>
+			                    <td><input type="text" class="form-control" name="price"  value="${organ.price}"></td>
+			                    <td><input type="text" class="form-control" name="donator"  value="${organ.donator}"></td>
 			                </tr>
 			        	</table>
 		        	</div>

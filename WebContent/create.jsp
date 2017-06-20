@@ -1,7 +1,6 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <c:import url="header.jsp" />
 <%@ page isELIgnored="false" %>
-
 <body>
 	<div class="container">
 	    <div class="center-block">

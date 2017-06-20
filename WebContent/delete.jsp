@@ -2,8 +2,6 @@
 <c:import url="header.jsp" />
 <%@ page isELIgnored="false" %>
 
-<c:out value="${organ}"/>
-
 <body>
 	<div class="container">
 	    <div class="center-block">
