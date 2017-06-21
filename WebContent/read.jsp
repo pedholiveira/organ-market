@@ -57,7 +57,7 @@
 	                    <td>Price</td>
 	                    <td>Donator</td>
 	                    <td>
-	                    	<a class="btn btn-link" href="/create">
+	                    	<a class="btn btn-link" href="create">
 	                        	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 	                            New Organ
 	                        </a>
