@@ -61,23 +61,28 @@ public class MarketController extends HttpServlet {
         Organ organ = new Organ();
         
         if (action.equals("/create")) {
+        	resource = "create.jsp";
         	organ.setOrgan(req.getParameter("organ"));
             organ.setPrice(new BigDecimal(req.getParameter("price")));
             organ.setDonator(req.getParameter("donator"));
             dao.insert(organ);
-        } else if (action.equals("/update")) {
-        	organ.setId(Long.valueOf(req.getParameter("id")));
-        	organ.setOrgan(req.getParameter("organ"));
-            organ.setPrice(new BigDecimal(req.getParameter("price")));
-            organ.setDonator(req.getParameter("donator"));
-        	dao.update(organ);
-        } else if (action.equals("/delete")) {
-        	dao.delete(Long.valueOf(req.getParameter("id")));
+        	req.setAttribute("organ", req.getParameter("organ"));
+        	resp.getWriter().write("Organ: " + req.getParameter("organ") + " inserted.");
+        } else {
+        	if (action.equals("/update")) {
+            	organ.setId(Long.valueOf(req.getParameter("id")));
+            	organ.setOrgan(req.getParameter("organ"));
+                organ.setPrice(new BigDecimal(req.getParameter("price")));
+                organ.setDonator(req.getParameter("donator"));
+            	dao.update(organ);
+            } else if (action.equals("/delete")) {
+            	dao.delete(Long.valueOf(req.getParameter("id")));
+            }
+        	req.setAttribute("organs", dao.getAll());
+        	RequestDispatcher dispatcher = req.getRequestDispatcher(resource);
+        	dispatcher.forward(req, resp);
         }
 
-        req.setAttribute("organs", dao.getAll());
-        RequestDispatcher dispatcher = req.getRequestDispatcher(resource);
-        dispatcher.forward(req, resp);
     }
     
     @Override

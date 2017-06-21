@@ -75,6 +75,8 @@
 	              		Cancel
 	              	</a>
 	            </form>
+	            
+	            <c:if test="${organ != null}">Organ: ${organ.organ} inserted.</c:if>
 	        </div>
 	    </div>
 	</div>
