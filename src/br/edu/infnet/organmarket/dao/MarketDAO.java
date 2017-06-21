@@ -118,12 +118,15 @@ public class MarketDAO implements Closeable {
     
     public void update(Organ organ){
         try {
-            PreparedStatement stmt = connection.prepareStatement("UPDATE Stock SET Organ = ?, Price = ?, Donator = ? WHERE Id = ?");
-            stmt.setString(1, organ.getOrgan());
-            stmt.setBigDecimal(2, organ.getPrice());
-            stmt.setString(3, organ.getDonator());
-            stmt.setLong(4, organ.getId());
-            stmt.executeUpdate();
+        	Statement stmt = connection.createStatement();
+            stmt.execute("UPDATE Stock SET Organ = '" + organ.getOrgan() + "', Price = '" + organ.getPrice() + "', Donator = '" + organ.getDonator() + "' WHERE Id = '" + organ.getId() + "'");
+
+//            PreparedStatement stmt = connection.prepareStatement("UPDATE Stock SET Organ = ?, Price = ?, Donator = ? WHERE Id = ?");
+//            stmt.setString(1, organ.getOrgan());
+//            stmt.setBigDecimal(2, organ.getPrice());
+//            stmt.setString(3, organ.getDonator());
+//            stmt.setLong(4, organ.getId());
+//            stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
