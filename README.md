@@ -70,10 +70,6 @@ Se tudo correu bem até aqui ao acessar a página [http://localhost:8080/read](h
 
 Não tem teste.
 
-### Deployment
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
 ### Built With
 
 - [Java](http://www.oracle.com/technetwork/pt/java/javase/downloads/jre8-downloads-2133155.html), código.
